@@ -1,4 +1,4 @@
-// AUTO MOVE FROM PAGE 1 TO PAGE 2
+// AUTO PAGE 1 -> PAGE 2
 setTimeout(()=>{
   nextPage(2);
 },2500);
@@ -17,20 +17,33 @@ function restart(){
   setTimeout(()=>nextPage(2),2500);
 }
 
-// TYPING EFFECT
-const text = "I just wanted to remind you that you are special, appreciated, and loved more than you know. Never forget that ❤️";
-let i = 0;
+// Typing Effect
+const text = "I just wanted to remind you that you are special, appreciated and loved more than you know. Never forget that ❤️";
+let i=0;
 
 function startTyping(){
-  const typing = document.getElementById("typing");
+  const typing=document.getElementById("typing");
   typing.innerHTML="";
   i=0;
-  let interval = setInterval(()=>{
+  let interval=setInterval(()=>{
     if(i<text.length){
       typing.innerHTML+=text.charAt(i);
       i++;
-    } else {
+    }else{
       clearInterval(interval);
     }
   },40);
 }
+
+// Generate floating hearts
+function createHeart(){
+  const heart=document.createElement("div");
+  heart.classList.add("heart");
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.animationDuration=(5+Math.random()*5)+"s";
+  document.querySelector(".hearts").appendChild(heart);
+
+  setTimeout(()=>heart.remove(),8000);
+}
+
+setInterval(createHeart,400);
