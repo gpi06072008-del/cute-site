@@ -1,70 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>For You ❤️</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
+<div class="hearts"></div>
 
-  <!-- Loader Screen -->
-  <div class="screen active" id="loader">
-    <div class="circle">
-      <div class="heart">❤</div>
-    </div>
-    <p>Measuring cuteness...</p>
+<!-- PAGE 1 LOADER -->
+<section class="page active" id="p1">
+  <div class="loader"></div>
+  <p>Measuring cuteness...</p>
+</section>
+
+<!-- PAGE 2 INTRO -->
+<section class="page" id="p2">
+  <h1>Hey You 💕</h1>
+  <p>You deserve something special today.</p>
+  <button onclick="nextPage(3)">Next</button>
+</section>
+
+<!-- PAGE 3 POLAROIDS -->
+<section class="page" id="p3">
+  <h2>Things I Love About You</h2>
+  <div class="polaroids">
+    <div class="card">Your Smile 😊</div>
+    <div class="card">Your Eyes ✨</div>
+    <div class="card">Your Energy 💖</div>
   </div>
+  <button onclick="nextPage(4)">Continue</button>
+</section>
 
-  <!-- Cards Screen -->
-  <div class="screen" id="cards">
-    <h2>My favorite<br>things about you</h2>
+<!-- PAGE 4 COMPLIMENT -->
+<section class="page" id="p4">
+  <h2>But Honestly...</h2>
+  <p class="big-text">You are the cutest human alive 🥺💗</p>
+  <button onclick="nextPage(5)">One More Thing</button>
+</section>
 
-    <div class="polaroids">
-      <div class="card">Your smile 😊</div>
-      <div class="card">Your eyes ✨</div>
-      <div class="card">Your laugh 💕</div>
-    </div>
-
-    <button onclick="nextScreen()">One more thing</button>
+<!-- PAGE 5 LONG MESSAGE -->
+<section class="page" id="p5">
+  <div class="message-box">
+    <p id="typing"></p>
   </div>
+  <button onclick="nextPage(6)">Final</button>
+</section>
 
-  <!-- Final Message -->
-  <div class="screen" id="final">
-    <div class="message-box">
-      <h3>For you,</h3>
-      <p>
-        I wanted to make something different for you.
-        Thank you for being my person.
-        You make my world brighter every day. 💖
-      </p>
-      <button onclick="restart()">Replay</button>
-    </div>
-  </div>
+<!-- PAGE 6 FINAL -->
+<section class="page" id="p6">
+  <h1>Thank You For Existing ❤️</h1>
+  <button onclick="restart()">Replay</button>
+</section>
 
-</div>
-
-<!-- Falling Petals -->
-<div class="petals"></div>
-
-<script>
-setTimeout(() => {
-  document.getElementById("loader").classList.remove("active");
-  document.getElementById("cards").classList.add("active");
-}, 3000);
-
-function nextScreen(){
-  document.getElementById("cards").classList.remove("active");
-  document.getElementById("final").classList.add("active");
-}
-
-function restart(){
-  document.getElementById("final").classList.remove("active");
-  document.getElementById("cards").classList.add("active");
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
