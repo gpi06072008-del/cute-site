@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Loader Screen -->
+  <div class="screen active" id="loader">
+    <div class="circle">
+      <div class="heart">❤</div>
+    </div>
+    <p>Measuring cuteness...</p>
+  </div>
+
+  <!-- Cards Screen -->
+  <div class="screen" id="cards">
+    <h2>My favorite<br>things about you</h2>
+
+    <div class="polaroids">
+      <div class="card">Your smile 😊</div>
+      <div class="card">Your eyes ✨</div>
+      <div class="card">Your laugh 💕</div>
+    </div>
+
+    <button onclick="nextScreen()">One more thing</button>
+  </div>
+
+  <!-- Final Message -->
+  <div class="screen" id="final">
+    <div class="message-box">
+      <h3>For you,</h3>
+      <p>
+        I wanted to make something different for you.
+        Thank you for being my person.
+        You make my world brighter every day. 💖
+      </p>
+      <button onclick="restart()">Replay</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- Falling Petals -->
+<div class="petals"></div>
+
+<script>
+setTimeout(() => {
+  document.getElementById("loader").classList.remove("active");
+  document.getElementById("cards").classList.add("active");
+}, 3000);
+
+function nextScreen(){
+  document.getElementById("cards").classList.remove("active");
+  document.getElementById("final").classList.add("active");
+}
+
+function restart(){
+  document.getElementById("final").classList.remove("active");
+  document.getElementById("cards").classList.add("active");
+}
+</script>
+
+</body>
+</html>
