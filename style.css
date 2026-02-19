@@ -1,18 +1,14 @@
 *{
-*{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 body{
   height:100vh;
   overflow:hidden;
-  background:linear-gradient(135deg,#ffd6e0,#ffeef3);
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  background:linear-gradient(135deg,#ffd1dc,#ffe9f0);
 }
 
 .page{
@@ -26,11 +22,13 @@ body{
   text-align:center;
   padding:20px;
   opacity:0;
+  transform:scale(0.98);
   transition:0.6s ease;
 }
 
 .page.active{
   opacity:1;
+  transform:scale(1);
 }
 
 h1,h2{
@@ -50,6 +48,7 @@ button{
   background:linear-gradient(45deg,#ff4d7a,#ff2e6f);
   color:white;
   cursor:pointer;
+  font-size:14px;
   transition:0.3s;
 }
 
@@ -57,11 +56,10 @@ button:hover{
   transform:scale(1.05);
 }
 
-/* LOADER */
 .loader{
-  width:80px;
-  height:80px;
-  border:6px solid #ff9eb5;
+  width:90px;
+  height:90px;
+  border:6px solid #ffc0cb;
   border-top:6px solid #ff2e6f;
   border-radius:50%;
   animation:spin 1.5s linear infinite;
@@ -72,51 +70,92 @@ button:hover{
   100%{transform:rotate(360deg);}
 }
 
-/* POLAROIDS */
 .polaroids{
   display:flex;
   gap:15px;
 }
 
 .card{
-  width:100px;
-  height:130px;
+  width:110px;
+  height:140px;
   background:white;
   border-radius:15px;
   display:flex;
   justify-content:center;
   align-items:center;
-  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  box-shadow:0 15px 30px rgba(0,0,0,0.15);
+  transform:rotate(-5deg);
 }
 
-.big-text{
+.card:nth-child(2){
+  transform:rotate(5deg);
+}
+
+.card:nth-child(3){
+  transform:rotate(-3deg);
+}
+
+.big{
   font-size:20px;
-  font-weight:bold;
+  font-weight:600;
   color:#ff2e6f;
 }
 
-/* MESSAGE BOX */
 .message-box{
   background:white;
   padding:25px;
   border-radius:20px;
-  box-shadow:0 15px 30px rgba(0,0,0,0.1);
+  box-shadow:0 15px 30px rgba(0,0,0,0.15);
   width:300px;
   min-height:120px;
 }
 
-/* HEARTS */
-.hearts::before{
-  content:"💖 💕 💗 💓 💞 💘";
-  position:absolute;
-  top:-50px;
+/* Floating Hearts */
+
+.hearts{
+  position:fixed;
   width:100%;
-  font-size:20px;
-  animation:fall 8s linear infinite;
-  white-space:nowrap;
+  height:100%;
+  pointer-events:none;
+  overflow:hidden;
 }
 
-@keyframes fall{
-  0%{transform:translateY(-50px);}
-  100%{transform:translateY(110vh);}
+.heart{
+  position:absolute;
+  width:15px;
+  height:15px;
+  background:#ff4d7a;
+  transform:rotate(45deg);
+  animation:float 8s linear infinite;
+}
+
+.heart:before,
+.heart:after{
+  content:"";
+  position:absolute;
+  width:15px;
+  height:15px;
+  background:#ff4d7a;
+  border-radius:50%;
+}
+
+.heart:before{
+  top:-7px;
+  left:0;
+}
+
+.heart:after{
+  left:-7px;
+  top:0;
+}
+
+@keyframes float{
+  0%{
+    transform:translateY(100vh) rotate(45deg);
+    opacity:1;
+  }
+  100%{
+    transform:translateY(-10vh) rotate(45deg);
+    opacity:0;
+  }
 }
