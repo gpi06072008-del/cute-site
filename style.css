@@ -1,4 +1,5 @@
 *{
+*{
   margin:0;
   padding:0;
   box-sizing:border-box;
@@ -6,25 +7,15 @@
 }
 
 body{
-  background: #f8d7dc;
   height:100vh;
+  overflow:hidden;
+  background:linear-gradient(135deg,#ffd6e0,#ffeef3);
   display:flex;
   justify-content:center;
   align-items:center;
-  overflow:hidden;
 }
 
-.container{
-  width:360px;
-  height:640px;
-  background:#fbe4e7;
-  border-radius:30px;
-  position:relative;
-  overflow:hidden;
-  box-shadow:0 20px 40px rgba(0,0,0,0.15);
-}
-
-.screen{
+.page{
   position:absolute;
   width:100%;
   height:100%;
@@ -33,72 +24,31 @@ body{
   justify-content:center;
   align-items:center;
   text-align:center;
+  padding:20px;
   opacity:0;
   transition:0.6s ease;
-  padding:20px;
 }
 
-.screen.active{
+.page.active{
   opacity:1;
 }
 
-/* Loader */
-.circle{
-  width:140px;
-  height:140px;
-  border:6px solid #ff9eb5;
-  border-radius:50%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  animation: spin 3s linear infinite;
+h1,h2{
+  color:#ff2e6f;
+  margin-bottom:20px;
 }
 
-.heart{
-  font-size:30px;
-  color:#ff4d7a;
-}
-
-@keyframes spin{
-  100%{ transform:rotate(360deg); }
-}
-
-/* Cards */
-h2{
-  color:#d6336c;
-  margin-bottom:30px;
-}
-
-.polaroids{
-  display:flex;
-  gap:15px;
-  margin-bottom:40px;
-}
-
-.card{
-  width:90px;
-  height:120px;
-  background:white;
-  border-radius:12px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:14px;
-  box-shadow:0 10px 20px rgba(0,0,0,0.1);
-  transform:rotate(-5deg);
-}
-
-.card:nth-child(2){
-  transform:rotate(5deg);
+p{
+  color:#444;
+  margin-bottom:20px;
 }
 
 button{
-  padding:12px 25px;
+  padding:12px 28px;
   border:none;
-  border-radius:25px;
-  background:linear-gradient(45deg,#ff4d7a,#ff758f);
+  border-radius:30px;
+  background:linear-gradient(45deg,#ff4d7a,#ff2e6f);
   color:white;
-  font-size:14px;
   cursor:pointer;
   transition:0.3s;
 }
@@ -107,38 +57,66 @@ button:hover{
   transform:scale(1.05);
 }
 
-/* Final Message */
+/* LOADER */
+.loader{
+  width:80px;
+  height:80px;
+  border:6px solid #ff9eb5;
+  border-top:6px solid #ff2e6f;
+  border-radius:50%;
+  animation:spin 1.5s linear infinite;
+  margin-bottom:20px;
+}
+
+@keyframes spin{
+  100%{transform:rotate(360deg);}
+}
+
+/* POLAROIDS */
+.polaroids{
+  display:flex;
+  gap:15px;
+}
+
+.card{
+  width:100px;
+  height:130px;
+  background:white;
+  border-radius:15px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.big-text{
+  font-size:20px;
+  font-weight:bold;
+  color:#ff2e6f;
+}
+
+/* MESSAGE BOX */
 .message-box{
   background:white;
   padding:25px;
   border-radius:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+  box-shadow:0 15px 30px rgba(0,0,0,0.1);
+  width:300px;
+  min-height:120px;
 }
 
-.message-box h3{
-  color:#d6336c;
-  margin-bottom:15px;
-}
-
-.message-box p{
-  font-size:14px;
-  color:#444;
-  margin-bottom:20px;
-}
-
-/* Falling Petals */
-.petals::before{
-  content:"💮 💗 💕 💮 💗 💕";
+/* HEARTS */
+.hearts::before{
+  content:"💖 💕 💗 💓 💞 💘";
   position:absolute;
   top:-50px;
-  left:0;
   width:100%;
   font-size:20px;
-  animation:fall 10s linear infinite;
+  animation:fall 8s linear infinite;
   white-space:nowrap;
 }
 
 @keyframes fall{
-  0%{ transform:translateY(-50px);}
-  100%{ transform:translateY(700px);}
+  0%{transform:translateY(-50px);}
+  100%{transform:translateY(110vh);}
 }
